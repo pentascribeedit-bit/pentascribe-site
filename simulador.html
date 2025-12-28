@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <title>Simular orçamento | PentaScribe</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Revisão de manuscritos em inglês acadêmico (US English) e tradução Português–Inglês com adequação editorial. Simule custos e prazos por palavra." />
+  <link rel="stylesheet" href="styles.css" />
+
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html" aria-label="Página inicial">
+        <div class="brand-mark" aria-hidden="true">PS</div>
+        <div class="brand-text">
+          <div class="brand-name">PentaScribe</div>
+          <div class="brand-tag">Scientific Editing & Translation</div>
+        </div>
+      </a>
+
+      <nav class="nav" aria-label="Navegação principal">
+        <a href="index.html">Início</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="planos.html">Planos</a>
+        <a href="simulador.html">Simular orçamento</a>
+        <a href="faq.html">FAQ</a>
+        <a href="contato.html" class="btn btn-small">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+
+<main>
+  <section class="section">
+    <div class="container">
+      <h1 class="page-title">Simular orçamento</h1>
+      <p class="lead">
+        Informe o número de palavras do texto-fonte e selecione o serviço. O cálculo é automático e fornece uma estimativa inicial de custo e prazo.
+      </p>
+
+      <div class="calc-grid">
+        <form class="calc card" id="calcForm" novalidate>
+          <div class="field">
+            <label for="words">Número de palavras (texto-fonte)</label>
+            <input id="words" name="words" type="number" min="1" step="1" inputmode="numeric" placeholder="Ex.: 5500" required />
+            <div class="hint">Dica: no Word, use “Revisão → Contagem de Palavras”.</div>
+          </div>
+
+          <div class="field">
+            <label for="service">Serviço</label>
+            <select id="service" name="service" required>
+              <option value="" selected disabled>Selecione…</option>
+              <option value="copy_standard">Revisão (EN→EN) • padrão (8 dias)</option>
+              <option value="copy_priority">Revisão (EN→EN) • prioritário (4 dias)</option>
+              <option value="trans_standard">Tradução (PT→EN) • padrão (8 dias)</option>
+              <option value="trans_priority">Tradução (PT→EN) • prioritário (4 dias)</option>
+              <option value="transedit_standard">Tradução + adequação editorial • padrão (10 dias)</option>
+              <option value="transedit_priority">Tradução + adequação editorial • prioritário (6 dias)</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="currency">Moeda</label>
+            <select id="currency" name="currency">
+              <option value="BRL" selected>BRL (R$)</option>
+            </select>
+            <div class="hint">Os valores nesta página estão definidos em reais (R$).</div>
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn">Calcular</button>
+            <button type="button" class="btn btn-ghost" id="resetBtn">Limpar</button>
+          </div>
+
+          <div class="notice" id="calcError" role="alert" aria-live="polite"></div>
+        </form>
+
+        <div class="result card" aria-live="polite">
+          <h2 class="result-title">Resultado</h2>
+
+          <div class="kpis">
+            <div class="kpi">
+              <div class="kpi-label">Estimativa de custo</div>
+              <div class="kpi-value" id="outPrice">—</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Prazo estimado</div>
+              <div class="kpi-value" id="outDeadline">—</div>
+            </div>
+            <div class="kpi">
+              <div class="kpi-label">Tarifa aplicada</div>
+              <div class="kpi-value" id="outRate">—</div>
+            </div>
+          </div>
+
+          <p class="microcopy">
+            Estimativa baseada na tabela pública de planos. Para confirmar disponibilidade e data de entrega, envie um e-mail com o arquivo (ou trechos representativos),
+            a contagem de palavras e o plano desejado.
+          </p>
+
+          <div class="result-cta">
+            <a class="btn" href="contato.html">Enviar solicitação</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <h2>Boas práticas para solicitar orçamento</h2>
+        <ul class="bullets">
+          <li>Informe o número de palavras do texto-fonte e o plano (padrão/prioritário).</li>
+          <li>Indique o periódico-alvo, caso haja exigências específicas de estilo.</li>
+          <li>Se o texto tiver muitas tabelas/figuras, descreva o volume e o tipo de conteúdo.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-left">
+          <strong>PentaScribe</strong> — Scientific Editing & Translation
+        </div>
+        <div class="footer-right">
+          <span>© <span id="year"></span> PentaScribe</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+<script src="script.js"></script>
+</body>
+</html>
