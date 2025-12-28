@@ -85,6 +85,18 @@ a.link:hover{ opacity: 0.85; }
 }
 .nav a:hover{ color: var(--text); background: rgba(15,23,42,0.05); }
 
+/* Nav CTA ("Contato") — ensure the button styling wins over the generic nav link rule */
+.nav a.btn{
+  background: var(--accent);
+  border: 1px solid var(--accent);
+  color: #fff;
+}
+.nav a.btn:hover{
+  background: #0b5f59;
+  border-color: #0b5f59;
+  color: #fff;
+}
+
 .btn{
   display:inline-flex;
   align-items:center;
