@@ -74,3 +74,113 @@ if(form){
     setText("outRate", `R$ ${cfg.rate.toFixed(2)} / palavra`);
   });
 }
+
+
+// Contact page helpers (only when elements exist)
+(function(){
+  const EMAIL_TO = "pentascribe.edit@gmail.com";
+
+  const copyBtn = byId("copyEmailBtn");
+  const copyStatus = byId("copyEmailStatus");
+
+  function setStatus(msg){
+    if(!copyStatus) return;
+    copyStatus.textContent = msg;
+  }
+
+  async function copyToClipboard(text){
+    try{
+      await navigator.clipboard.writeText(text);
+      return true;
+    }catch(_e){
+      // Fallback
+      try{
+        const tmp = document.createElement("input");
+        tmp.value = text;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand("copy");
+        document.body.removeChild(tmp);
+        return true;
+      }catch(_e2){
+        return false;
+      }
+    }
+  }
+
+  if(copyBtn){
+    copyBtn.addEventListener("click", async () => {
+      const email = copyBtn.getAttribute("data-email") || EMAIL_TO;
+      const ok = await copyToClipboard(email);
+      setStatus(ok ? "Copiado." : "Não foi possível copiar. Copie manualmente.");
+      window.setTimeout(() => setStatus(""), 3000);
+    });
+  }
+
+  const briefBtn = byId("briefEmailBtn");
+  const briefForm = byId("briefForm");
+
+  function safeVal(id){
+    const el = byId(id);
+    if(!el) return "";
+    return (el.value || "").trim();
+  }
+
+  function buildMailto(subject, body){
+    const qs = `subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    return `mailto:${EMAIL_TO}?${qs}`;
+  }
+
+  function buildBody(fields){
+    const lines = [
+      "Olá, PentaScribe.",
+      "",
+      "Gostaria de solicitar orçamento para:",
+      "",
+      `Serviço: ${fields.service || "—"}`,
+      `Nº de palavras (texto-fonte): ${fields.words || "—"}`,
+      `Plano: ${fields.plan || "—"}`,
+      `Prazo desejado: ${fields.deadline || "—"}`,
+      `Periódico-alvo: ${fields.journal || "—"}`,
+      "",
+      "Observações:",
+      fields.notes ? fields.notes : "—",
+      "",
+      `Nome: ${fields.name || "—"}`,
+      `E-mail: ${fields.sender || "—"}`,
+      "",
+      "Anexo: (enviar .docx/.txt junto ao e-mail)."
+    ];
+    return lines.join("\n");
+  }
+
+  if(briefBtn){
+    briefBtn.addEventListener("click", () => {
+      const fields = {
+        service: safeVal("briefService"),
+        words: safeVal("briefWords"),
+        plan: safeVal("briefPlan"),
+        deadline: safeVal("briefDeadline"),
+        journal: safeVal("briefJournal"),
+        notes: safeVal("briefNotes"),
+        name: safeVal("briefName"),
+        sender: safeVal("briefSender"),
+      };
+
+      // Basic validation: service + words
+      if(!fields.service){
+        alert("Selecione o serviço.");
+        return;
+      }
+      if(!fields.words || Number(fields.words) <= 0){
+        alert("Informe o número de palavras (texto-fonte).");
+        return;
+      }
+
+      const subject = `Orçamento — ${fields.service} — ${fields.words} palavras — ${fields.deadline || fields.plan}`;
+      const body = buildBody(fields);
+
+      window.location.href = buildMailto(subject, body);
+    });
+  }
+})();
