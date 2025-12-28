@@ -527,14 +527,3 @@ select:focus{
   margin: 12px 0 0;
   font-weight: 600;
 }
-
-/* --- Navbar: ensure "Contato" button is legible --- */
-.nav a.btn{
-  color:#ffffff;
-  background:#0f172a;
-  border-color:#0f172a;
-}
-.nav a.btn:hover{
-  background:#0b1220;
-  border-color:#0b1220;
-}
