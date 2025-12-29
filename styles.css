@@ -539,3 +539,18 @@ select:focus{
   margin: 12px 0 0;
   font-weight: 600;
 }
+
+/* PentaScribe: Top Banner */
+.ps-topbar{
+  width: 100%;
+  background: #143a56;
+}
+
+.ps-topbar img{
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 160px;
+  object-fit: contain;
+}
+
