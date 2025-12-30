@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Revisão de manuscritos em inglês acadêmico (US English) e tradução Português–Inglês com adequação editorial. Simule custos e prazos por palavra." />
   <link rel="stylesheet" href="styles.css" />
-
 </head>
 <body>
 
@@ -32,134 +31,135 @@
     </div>
   </header>
 
+  <main>
+    <section class="section">
+      <div class="container">
+        <h1 class="page-title">Contato</h1>
+        <p class="lead">
+          Para um orçamento formal, envie o arquivo (ou um trecho representativo), informe o número de palavras do texto-fonte e indique o plano desejado.
+        </p>
 
-<main>
-  <section class="section">
-    <div class="container">
-      <h1 class="page-title">Contato</h1>
-      <p class="lead">
-        Para um orçamento formal, envie o arquivo (ou um trecho representativo), informe o número de palavras do texto-fonte e indique o plano desejado.
-      </p>
+        <div class="contact-grid">
+          <!-- Card 1 -->
+          <div class="card">
+            <h2 class="card-title">Solicitar orçamento</h2>
+            <p class="muted">
+              Se houver exigências do periódico (estilo, limite de palavras, padrão de referências), inclua essas informações. Em caso de urgência, sinalize o prazo desejado.
+            </p>
 
-      <div class="contact-grid">
-        <div class="card">
-          <h2 class="card-title">Solicitar orçamento</h2>
-          <p class="muted">
-            Se houver exigências do periódico (estilo, limite de palavras, padrão de referências), inclua essas informações. Em caso de urgência, sinalize o prazo desejado.
-          </p>
+            <div class="contact-box">
+              <div class="contact-label">E-mail</div>
+              <a class="contact-email" href="mailto:pentascribe.edit@gmail.com">pentascribe.edit@gmail.com</a>
 
-          <div class="contact-box">
-            <div class="contact-label">E-mail</div>
-            <a class="contact-email" href="mailto:pentascribe.edit@gmail.com">pentascribe.edit@gmail.com</a>
-          
-          <div class="contact-actions">
-            <button class="btn btn-ghost" id="copyEmailBtn" type="button" data-email="pentascribe.edit@gmail.com">Copiar e-mail</button>
-            <span class="copy-status" id="copyEmailStatus" aria-live="polite"></span>
+              <div class="contact-actions">
+                <button class="btn btn-ghost" id="copyEmailBtn" type="button" data-email="pentascribe.edit@gmail.com">Copiar e-mail</button>
+                <span class="copy-status" id="copyEmailStatus" aria-live="polite"></span>
+              </div>
+            </div>
+
+            <p class="microcopy">
+              Sugestão de assunto do e-mail: “Orçamento — [Serviço] — [Número de palavras] — [Prazo desejado]”.
+            </p>
+
+            <div class="actions">
+              <a class="btn" href="mailto:pentascribe.edit@gmail.com">Enviar e-mail</a>
+              <a class="btn btn-ghost" href="simulador.html">Calcular estimativa</a>
+            </div>
           </div>
+
+          <!-- Card 2 -->
+          <div class="card">
+            <h2 class="card-title">Checklist</h2>
+            <ul class="bullets">
+              <li>Arquivo em .docx (preferível) ou .txt.</li>
+              <li>Número total de palavras do texto-fonte.</li>
+              <li>Plano desejado (padrão/prioritário) e prazo-alvo.</li>
+              <li>Área do manuscrito e periódico-alvo (se já definido).</li>
+            </ul>
+
+            <p class="microcopy">
+              Observação: este site-modelo não coleta dados nem possui formulário embutido. Se desejar, é possível adicionar um formulário
+              com envio por e-mail via serviços externos (ex.: Formspree).
+            </p>
           </div>
 
-          <p class="microcopy">
-            Sugestão de assunto do e-mail: “Orçamento — [Serviço] — [Número de palavras] — [Prazo desejado]”.
-          </p>
+          <!-- Card 3 -->
+          <div class="card">
+            <h2 class="card-title">Brief do serviço</h2>
+            <p class="muted">
+              Preencha os campos abaixo e clique em <strong>“Gerar e-mail pré-preenchido”</strong>. O conteúdo será aberto no seu cliente
+              de e-mail (Gmail/Outlook/Apple Mail), sem armazenamento de dados neste site.
+            </p>
 
-          <div class="actions">
-            <a class="btn" href="mailto:pentascribe.edit@gmail.com">Enviar e-mail</a>
-            <a class="btn btn-ghost" href="simulador.html">Calcular estimativa</a>
+            <form id="briefForm" class="brief-form">
+              <div class="form-grid">
+                <div class="field">
+                  <label for="briefService">Serviço</label>
+                  <select id="briefService" name="service" required>
+                    <option value="" selected disabled>Selecione…</option>
+                    <option value="Revisão (EN→EN) — copyediting">Revisão (EN→EN) — copyediting</option>
+                    <option value="Tradução (PT→EN)">Tradução (PT→EN)</option>
+                    <option value="Tradução + adequação editorial">Tradução + adequação editorial</option>
+                    <option value="Dúvida / a definir">Dúvida / a definir</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="briefWords">Nº de palavras (texto-fonte)</label>
+                  <input id="briefWords" name="words" type="number" min="1" step="1" placeholder="Ex.: 7500" required />
+                </div>
+
+                <div class="field">
+                  <label for="briefPlan">Plano</label>
+                  <select id="briefPlan" name="plan">
+                    <option value="Padrão">Padrão</option>
+                    <option value="Prioritário">Prioritário</option>
+                    <option value="A definir">A definir</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="briefDeadline">Prazo desejado</label>
+                  <input id="briefDeadline" name="deadline" type="text" placeholder="Ex.: 8 dias; ou até 15/01/2026" />
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="briefJournal">Periódico-alvo (opcional)</label>
+                <input id="briefJournal" name="journal" type="text" />
+              </div>
+
+              <div class="field">
+                <label for="briefNotes">Observações (opcional)</label>
+                <textarea id="briefNotes" name="notes" placeholder="Ex.: seção específica; exigência de estilo; terminologia; urgência; etc."></textarea>
+              </div>
+
+              <div class="form-grid">
+                <div class="field">
+                  <label for="briefName">Seu nome (opcional)</label>
+                  <input id="briefName" name="name" type="text" placeholder="Nome" />
+                </div>
+
+                <div class="field">
+                  <label for="briefSender">Seu e-mail (opcional)</label>
+                  <input id="briefSender" name="sender" type="email" placeholder="seuemail@exemplo.com" />
+                </div>
+              </div>
+
+              <div class="actions">
+                <button class="btn" type="button" id="briefEmailBtn">Gerar e-mail pré-preenchido</button>
+                <a class="btn btn-ghost" href="simulador.html">Abrir simulador</a>
+              </div>
+
+              <p class="microcopy">
+                Importante: o arquivo não é anexado automaticamente; anexe o .docx/.txt ao enviar o e-mail gerado.
+              </p>
+            </form>
           </div>
-        
-<div class="card">
-  <h2 class="card-title">Brief do serviço</h2>
-  <p class="muted">
-    Preencha os campos abaixo e clique em <strong>“Gerar e-mail pré-preenchido”</strong>. O conteúdo será aberto no seu cliente
-    de e-mail (Gmail/Outlook/Apple Mail), sem armazenamento de dados neste site.
-  </p>
-
-  <form id="briefForm" class="brief-form">
-    <div class="form-grid">
-      <div class="field">
-        <label for="briefService">Serviço</label>
-        <select id="briefService" name="service" required>
-          <option value="" selected disabled>Selecione…</option>
-          <option value="Revisão (EN→EN) — copyediting">Revisão (EN→EN) — copyediting</option>
-          <option value="Tradução (PT→EN)">Tradução (PT→EN)</option>
-          <option value="Tradução + adequação editorial">Tradução + adequação editorial</option>
-          <option value="Dúvida / a definir">Dúvida / a definir</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="briefWords">Nº de palavras (texto-fonte)</label>
-        <input id="briefWords" name="words" type="number" min="1" step="1" placeholder="Ex.: 7500" required>
-      </div>
-
-      <div class="field">
-        <label for="briefPlan">Plano</label>
-        <select id="briefPlan" name="plan">
-          <option value="Padrão">Padrão</option>
-          <option value="Prioritário">Prioritário</option>
-          <option value="A definir">A definir</option>
-        </select>
-      </div>
-
-      <div class="field">
-        <label for="briefDeadline">Prazo desejado</label>
-        <input id="briefDeadline" name="deadline" type="text" placeholder="Ex.: 8 dias; ou até 15/01/2026">
-      </div>
-    </div>
-
-    <div class="field">
-      <label for="briefJournal">Periódico-alvo (opcional)</label>
-      <input id="briefJournal" name="journal" type="text">
-    </div>
-
-    <div class="field">
-      <label for="briefNotes">Observações (opcional)</label>
-      <textarea id="briefNotes" name="notes" placeholder="Ex.: seção específica; exigência de estilo; terminologia; urgência; etc."></textarea>
-    </div>
-
-    <div class="form-grid">
-      <div class="field">
-        <label for="briefName">Seu nome (opcional)</label>
-        <input id="briefName" name="name" type="text" placeholder="Nome">
-      </div>
-
-      <div class="field">
-        <label for="briefSender">Seu e-mail (opcional)</label>
-        <input id="briefSender" name="sender" type="email" placeholder="seuemail@exemplo.com">
-      </div>
-    </div>
-
-    <div class="actions">
-      <button class="btn" type="button" id="briefEmailBtn">Gerar e-mail pré-preenchido</button>
-      <a class="btn btn-ghost" href="simulador.html">Abrir simulador</a>
-    </div>
-
-    <p class="microcopy">
-      Importante: o arquivo não é anexado automaticamente; anexe o .docx/.txt ao enviar o e-mail gerado.
-    </p>
-  </form>
-</div>
         </div>
-
-        <div class="card">
-          <h2 class="card-title">Checklist</h2>
-          <ul class="bullets">
-            <li>Arquivo em .docx (preferível) ou .txt.</li>
-            <li>Número total de palavras do texto-fonte.</li>
-            <li>Plano desejado (padrão/prioritário) e prazo-alvo.</li>
-            <li>Área do manuscrito e periódico-alvo (se já definido).</li>
-          </ul>
-
-          <p class="microcopy">
-            Observação: este site-modelo não coleta dados nem possui formulário embutido. Se desejar, é possível adicionar um formulário
-            com envio por e-mail via serviços externos (ex.: Formspree).
-          </p>
-        </div>
       </div>
-    </div>
-  </section>
-</main>
-
+    </section>
+  </main>
 
   <footer class="footer">
     <div class="container">
@@ -174,6 +174,6 @@
     </div>
   </footer>
 
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
