@@ -1,1 +1,13 @@
-[]
+[
+  {
+    "code": "PS-TEST-001",
+    "status": "valid",
+    "issued": "2025-12-31",
+    "service": "Copyediting (EN→EN)",
+    "language": "US English",
+    "scope": "Manuscrito científico",
+    "author": "Teste",
+    "title": "Test document"
+  }
+]
+
