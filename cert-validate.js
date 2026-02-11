@@ -41,13 +41,13 @@
 
   function renderValid(item) {
     return `
-      <div class="ps-result-title">Válido</div>
+      <div class="ps-result-title">Valid</div>
       <div class="ps-grid">
-        <div><span>Serviço:</span> ${escapeHtml(item.service || "—")}</div>
-        <div><span>Padrão:</span> ${escapeHtml(item.language || "—")}</div>
-        <div><span>Data de emissão:</span> ${escapeHtml(item.issued || "—")}</div>
-        ${item.author ? `<div><span>Autor(a):</span> ${escapeHtml(item.author)}</div>` : ""}
-        ${item.title ? `<div><span>Título:</span> ${escapeHtml(item.title)}</div>` : ""}
+        <div><span>Service:</span> ${escapeHtml(item.service || "—")}</div>
+        <div><span>Language:</span> ${escapeHtml(item.language || "—")}</div>
+        <div><span>Issue date:</span> ${escapeHtml(item.issued || "—")}</div>
+        ${item.author ? `<div><span>Author:</span> ${escapeHtml(item.author)}</div>` : ""}
+        ${item.title ? `<div><span>Title:</span> ${escapeHtml(item.title)}</div>` : ""}
       </div>
     `;
   }
