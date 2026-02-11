@@ -44,10 +44,10 @@
       <div class="ps-result-title">Valid</div>
       <div class="ps-grid">
         <div><span>Service:</span> ${escapeHtml(item.service || "—")}</div>
-        <div><span>Language:</span> ${escapeHtml(item.language || "—")}</div>
+        <div><span>Language standard:</span> ${escapeHtml(item.language || "—")}</div>
         <div><span>Issue date:</span> ${escapeHtml(item.issued || "—")}</div>
         ${item.author ? `<div><span>Author:</span> ${escapeHtml(item.author)}</div>` : ""}
-        ${item.title ? `<div><span>Title:</span> ${escapeHtml(item.title)}</div>` : ""}
+        ${item.title ? `<div><span>Document title:</span> ${escapeHtml(item.title)}</div>` : ""}
       </div>
     `;
   }
